@@ -1,20 +1,63 @@
 /* ===== CSS Variables & Global Styles ===== */
+/* ===== 1. PROFESSIONAL CSE THEME VARIABLES ===== */
 :root {
-    --primary: #2563eb;
-    --secondary: #1e40af;
-    --accent: #0ea5e9;
-    --text: #ffffff;
-    --text-light: #e5e7eb;
-    --bg: #0f172a;
-    --bg-light: #1e293b;
-    --gradient: linear-gradient(135deg, #2563eb, #0ea5e9, #06b6d4);
-    --gradient-alt: linear-gradient(135deg, #0ea5e9, #2563eb, #1e40af);
-    --gradient-gold: linear-gradient(135deg, #3b82f6, #2563eb);
-    --shadow: 0 0 30px rgba(37, 99, 235, 0.15);
-    --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
-    --shadow-subtle: 0 0 20px rgba(37, 99, 235, 0.1);
+    /* Professional Tech Palette */
+    --primary: #3b82f6;      /* Trustworthy Blue */
+    --secondary: #1e293b;    /* Slate */
+    --accent: #06b6d4;       /* Cyan (Clean Tech) */
+    --text: #f8fafc;         /* Off-white for better reading */
+    --text-light: #94a3b8;   /* Muted Slate */
+    
+    /* Deep Professional Background */
+    --bg: #020617;           /* Very dark slate/navy (almost black) */
+    --bg-light: #0f172a;     /* Lighter navy for sections */
+    --card-bg: rgba(30, 41, 59, 0.7); /* Glassy Slate */
+    
+    --border: rgba(148, 163, 184, 0.1);
+    --gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+    
+    /* Remove the heavy neon glows */
+    --shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
+/* Update Body Background */
+body {
+    background: var(--bg);
+    color: var(--text);
+}
+
+/* Make cards look cleaner (Less neon border, more glass) */
+.project-card, .skill-group, .hero-code-box {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Subtle white border */
+    box-shadow: var(--shadow);
+}
+
+.project-card:hover, .skill-group:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px -10px rgba(59, 130, 246, 0.3); /* Blue professional glow */
+}
+
+/* Update Text Selection color */
+::selection {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* Update Card Styles for cleaner look */
+.project-card, .skill-group, .hero-code-box, .contact-form, .hire-modal-content {
+    background: rgba(30, 41, 59, 0.7); /* Glass-like slate */
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+}
+
+/* Remove the old bright neon glows to look more professional */
+.orb, .photo-glow {
+    display: none; 
+}
 /* ===== Page Reload Effect ===== */
 .reload-effect {
     position: fixed;
@@ -258,12 +301,7 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-}
+
 
 /* ===== Canvas Background ===== */
 #bg-canvas {
@@ -1261,10 +1299,36 @@ body {
     padding: 20px;
     font-size: 0.9rem;
     max-width: 500px;
-    box-shadow: 0 0 30px rgba(255, 0, 110, 0.3), 0 0 60px rgba(131, 56, 236, 0.1);
-    overflow-x: auto;
-    animation: codeBorderGlow 3s ease-in-out infinite;
+    width: 100%; /* Ensure it takes full available width up to max */
+    
+    /* VITAL FIXES FOR SHAKING: */
+    min-height: 240px; /* locks the height so it doesn't grow line-by-line */
+    text-align: left;  /* prevents text from trying to center-align on every letter */
+    transition: none;  /* disables animations on the box itself while typing */
+    
+    box-shadow: 0 0 30px rgba(73, 8, 36, 0.3), 0 0 60px rgba(131, 56, 236, 0.1);
     position: relative;
+    overflow: hidden; /* hides anything that might accidentally overflow */
+}
+
+.hero-code-box pre {
+    margin: 0;
+    white-space: pre; /* Keeps code formatting strict */
+    font-family: 'JetBrains Mono', monospace; /* Monospace is crucial for typing effects */
+    color: #0ea5e9; /* Your accent color */
+    line-height: 1.5;
+}
+
+/* Optional: Blinking cursor effect at the end of typing */
+#typing-code::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: #fff;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
 }
 
 .hero-code-box::before {
@@ -2077,6 +2141,115 @@ footer p {
     .about-img { height: 300px; }
     .section-title { font-size: 1.8rem; margin-bottom: 40px; }
     .contact-info { grid-template-columns: 1fr; gap: 15px; }
+}
+
+/* ===== 1. NEW SKILLS LAYOUT STYLES ===== */
+.skills-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.skill-group {
+    background: rgba(30, 41, 59, 0.6);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(37, 99, 235, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.skill-group:hover {
+    transform: translateY(-5px);
+    border-color: #0ea5e9;
+}
+
+.skill-group-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #0ea5e9;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+}
+
+.skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.skill-card-mini {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    background: rgba(15, 23, 42, 0.8);
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+.skill-card-mini:hover {
+    background: rgba(37, 99, 235, 0.2);
+    transform: translateX(10px);
+}
+
+.skill-card-mini i {
+    font-size: 1.8rem;
+    width: 30px;
+    text-align: center;
+}
+
+/* ===== 2. MOBILE & TABLET RESPONSIVENESS TWEAKS ===== */
+
+/* Make project buttons visible on mobile without hover */
+@media (max-width: 992px) {
+    .project-overlay {
+        opacity: 1;
+        background: linear-gradient(to top, rgba(15, 23, 42, 1), transparent);
+        top: auto;
+        bottom: 0;
+        height: auto;
+        padding: 20px;
+        position: absolute;
+    }
+    
+    .project-overlay a {
+        padding: 8px 15px;
+        font-size: 0.85rem;
+    }
+    
+    .skills-wrapper {
+        grid-template-columns: 1fr; /* Stack skills on mobile */
+    }
+    
+    .hero-code-box {
+        display: none; /* Hide code box on small screens to save space, or reduce size */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+    /* Tablet specific adjustments */
+    .hero-code-box {
+        display: block;
+        font-size: 0.8rem;
+        max-width: 100%;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Ensure images don't overflow on small devices */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* ===== 3. CTA SECTION ===== */
+.cta-section {
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(15, 23, 42, 0.8));
+    border-top: 1px solid rgba(37, 99, 235, 0.2);
 }
 
 

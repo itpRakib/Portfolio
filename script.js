@@ -9,6 +9,8 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
+
+
 // Loading Screen - Hide after 2.8 seconds
 setTimeout(() => {
     const loadingScreen = document.getElementById('loadingScreen');
@@ -366,3 +368,44 @@ function filterPortfolioContent(query) {
 }
 
 console.log('%cWelcome to Rakibul\'s Portfolio!', 'color: #2563eb; font-size: 18px; font-weight: bold;');
+
+
+// ===== Typing Animation for Hero Section =====
+// ===== Typing Animation for Hero Section =====
+const typingCodeElement = document.getElementById('typing-code');
+
+if (typingCodeElement) {
+    const codeLines = [
+        "const passion = () => {",
+        "  return {",
+        "    skills: ['HTML', 'CSS', 'JS'],",
+        "    backend: ['Python', 'MySQL'],",
+        "    OS: 'Ubuntu/Linux',",
+        "    status: 'Ready to Hire'",
+        "  };",
+        "}"
+    ];
+
+    let lineIndex = 0;
+    let charIndex = 0;
+
+    function typeLine() {
+        if (lineIndex < codeLines.length) {
+            const currentLine = codeLines[lineIndex];
+
+            if (charIndex < currentLine.length) {
+                // textContent prevents HTML parsing jitters
+                typingCodeElement.textContent += currentLine.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeLine, 30); 
+            } else {
+                typingCodeElement.textContent += '\n';
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(typeLine, 100);
+            }
+        }
+    }
+
+    setTimeout(typeLine, 1000);
+}

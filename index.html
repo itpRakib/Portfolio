@@ -150,16 +150,8 @@
                         </div>
                     </div>
                     <div class="hero-code-box">
-                        <pre><code>const passion = () =&gt; {
-    return {
-        skills: ['HTML5', 'CSS3', 'JavaScript'],
-        languages: ['Python', 'C++'],
-        databases: ['MySQL'],
-        platform: 'Linux(Ubuntu)',
-        dedication: '∞'
-    };
-}</code></pre>
-                    </div>
+    <pre><code id="typing-code"></code></pre>
+</div>
                 </div>
             </div>
         </div>
@@ -207,41 +199,33 @@
     <section id="skills" class="skills section-padding bg-light">
         <div class="container">
             <h2 class="section-title" data-aos="fade-up">My Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="0">
-                    <i class="fab fa-html5 html"></i>
-                    <h3>HTML5</h3>
-                    <p>Semantic markup</p>
+            <div class="skills-wrapper">
+                <div class="skill-group" data-aos="fade-up">
+                    <h3 class="skill-group-title"><i class="fas fa-laptop-code"></i> Frontend</h3>
+                    <div class="skill-list">
+                        <div class="skill-card-mini"><i class="fab fa-html5 html"></i> <span>HTML5</span></div>
+                        <div class="skill-card-mini"><i class="fab fa-css3-alt css"></i> <span>CSS3</span></div>
+                        <div class="skill-card-mini"><i class="fab fa-js-square js"></i> <span>JavaScript</span></div>
+                        <div class="skill-card-mini"><i class="fab fa-react" style="color:#61dafb"></i> <span>React (Learning)</span></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
-                    <i class="fab fa-css3-alt css"></i>
-                    <h3>CSS3</h3>
-                    <p>Animations & Design</p>
+
+                <div class="skill-group" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="skill-group-title"><i class="fas fa-server"></i> Backend</h3>
+                    <div class="skill-list">
+                        <div class="skill-card-mini"><i class="fab fa-python python"></i> <span>Python</span></div>
+                        <div class="skill-card-mini"><i class="fas fa-database mysql"></i> <span>MySQL</span></div>
+                        <div class="skill-card-mini"><i class="fab fa-node" style="color:#68a063"></i> <span>Node.js</span></div>
+                    </div>
                 </div>
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
-                    <i class="fab fa-js-square js"></i>
-                    <h3>JavaScript</h3>
-                    <p>ES6+, DOM, APIs</p>
-                </div>
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
-                    <i class="fab fa-python python"></i>
-                    <h3>Python</h3>
-                    <p>Backend Development</p>
-                </div>
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="400">
-                    <i class="fas fa-terminal cpp"></i>
-                    <h3>C/C++</h3>
-                    <p>Systems Programming</p>
-                </div>
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="500">
-                    <i class="fas fa-database mysql"></i>
-                    <h3>MySQL</h3>
-                    <p>Database Design</p>
-                </div>
-                <div class="skill-card" data-aos="flip-left" data-aos-delay="600">
-                    <i class="fab fa-linux linux"></i>
-                    <h3>Linux (Ubuntu)</h3>
-                    <p>CLI & Development</p>
+
+                <div class="skill-group" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="skill-group-title"><i class="fas fa-tools"></i> Tools</h3>
+                    <div class="skill-list">
+                        <div class="skill-card-mini"><i class="fab fa-linux linux"></i> <span>Linux/Ubuntu</span></div>
+                        <div class="skill-card-mini"><i class="fab fa-git-alt" style="color:#f1502f"></i> <span>Git & GitHub</span></div>
+                        <div class="skill-card-mini"><i class="fas fa-terminal"></i> <span>Bash</span></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -262,14 +246,14 @@
                             <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
                         </div>
                     </div>
-                    <div class="project-info">
+                   <div class="project-info">
                         <h3>E-commerce Platform</h3>
-                        <p>Full-featured online store with HTML5, CSS3, JavaScript, MySQL.</p>
+                        <p>A scalable online retail solution featuring secure user authentication, real-time inventory management with MySQL, and a responsive UI.</p>
                         <div class="tech-tags">
                             <span>HTML5</span>
                             <span>CSS3</span>
-                            <span>JavaScript</span>
                             <span>MySQL</span>
+                            <span>PHP/JS</span>
                         </div>
                     </div>
                 </div>
@@ -379,6 +363,16 @@
                     <button type="submit" class="btn btn-primary">Send Message</button>
                 </form>
             </div>
+        </div>
+    </section>
+
+    <section class="cta-section section-padding">
+        <div class="container" style="text-align: center;">
+            <h2 data-aos="fade-up">Ready to start a project?</h2>
+            <p data-aos="fade-up" data-aos-delay="100" style="color: var(--text-light); margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto;">
+                I am currently available for freelance work and open to full-time opportunities.
+            </p>
+            <a href="#contact" class="btn btn-primary" data-aos="zoom-in" data-aos-delay="200">Let's Connect</a>
         </div>
     </section>
 
