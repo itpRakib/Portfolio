@@ -2048,21 +2048,11 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .hamburger { display: block; }
     .nav-links {
-        position: fixed;
-        top: 70px;
-        right: -100%;
-        width: 100%;
-        height: calc(100vh - 70px);
-        background: var(--secondary);
-        flex-direction: column;
-        align-items: center;
+        display: flex;
+        gap: 30px;
         justify-content: center;
-        transition: right 0.3s;
-        z-index: 999;
     }
-    .nav-links.active { right: 0; }
     
     .hero { height: auto; padding: 150px 0 100px; }
     .hero-content { flex-direction: column-reverse; text-align: center; }
@@ -2089,32 +2079,25 @@ footer p {
     .contact-info { grid-template-columns: 1fr; gap: 15px; }
 }
 
-@media (max-width: 768px) {
-    .hero-content { flex-direction: column-reverse; }
-    .hero-text { text-align: center; padding: 30px 20px; }
-    .hero-image-container { margin-top: 40px; }
-    .about-content { grid-template-columns: 1fr; }
-    .about-img { height: 350px; }
-    .skills-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-    .project-grid { grid-template-columns: 1fr; }
-    .contact-content { grid-template-columns: 1fr; gap: 40px; }
-    .contact-info { gap: 25px; }
-    .info-item { padding: 20px; }
-    
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+
+@media (max-width: 576px) {
+    .hero-text h1 {
+        font-size: 2.5rem;
     }
-    
-    .hire-modal-content {
-        padding: 40px 25px;
+
+    .hero-text h3 {
+        font-size: 1.2rem;
     }
-    
-    .hire-modal-content h2 {
-        font-size: 1.5rem;
+
+    .about-img {
+        height: 300px;
     }
-    
-    .hire-options {
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    }
+
+    .contact-info {
         grid-template-columns: 1fr;
     }
 }
