@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Rakibul Islam - CSE Portfolio</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+
+<body>
+    <!-- Page Reload Effects -->
+    <div class="reload-effect" id="reloadEffect"></div>
+
+    <!-- Page Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <div class="loader-circle-inner"></div>
+            <p>Loading Portfolio</p>
+            <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Animated CSE Background Canvas -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Advanced Custom Cursor -->
+    <div class="cursor-container">
+        <div class="cursor-ring"></div>
+        <div class="cursor-dot"></div>
+        <div class="cursor-glow"></div>
+        <div class="cursor-trail"></div>
+    </div>
+
+    <!-- Animated Background Elements -->
+    <div class="bg-animation-container">
+        <div class="grid-lines"></div>
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+        <div class="floating-code">{&lt;}</div>
+        <div class="floating-code">{/&gt;}</div>
+        <div class="floating-code">{}</div>
+        <div class="floating-code">[]</div>
+        <div class="floating-code">()</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#home" class="logo"><i class="fas fa-rocket"></i> Rakibul Islam</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <!-- Animated Search Bar with SVG Icon -->
+            <div class="search-bar-container">
+                <input type="text" class="search-bar" id="searchBar" placeholder="Search portfolio...">
+                <svg class="search-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Search Circle -->
+                    <circle class="search-circle" cx="10" cy="10" r="6" fill="none" stroke="currentColor"
+                        stroke-width="2" />
+                    <!-- Search Handle -->
+                    <line class="search-handle" x1="14.5" y1="14.5" x2="21" y2="21" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" />
+                    <!-- Animated Dot -->
+                    <circle class="search-dot" cx="10" cy="10" r="1.5" fill="currentColor" />
+                    <!-- Animated Particles -->
+                    <circle class="search-particle particle-1" cx="8" cy="8" r="0.8" fill="currentColor" />
+                    <circle class="search-particle particle-2" cx="12" cy="12" r="0.8" fill="currentColor" />
+                    <circle class="search-particle particle-3" cx="8" cy="12" r="0.8" fill="currentColor" />
+                </svg>
+            </div>
+
+            <button class="btn btn-hire" id="hireBtn">Hire Me</button>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hire Me Modal -->
+    <div class="hire-modal" id="hireModal">
+        <div class="hire-modal-content">
+            <button class="close-modal" id="closeModal">&times;</button>
+            <h2>Let's Work Together!</h2>
+            <p>Choose your preferred way to connect with me</p>
+            <div class="hire-options">
+                <a href="mailto:rakib.00245@gmail.com" class="hire-option">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>rakib.00245@gmail.com</p>
+                </a>
+                <a href="https://wa.me/8801817860068" target="_blank" class="hire-option">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp</h3>
+                    <p>Chat Now</p>
+                </a>
+                <a href="https://t.me/itprakib" target="_blank" class="hire-option">
+                    <i class="fab fa-telegram"></i>
+                    <h3>Telegram</h3>
+                    <p>Message Me</p>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fixed Floating Hire Me Button -->
+    <button class="floating-hire-btn" id="floatingHireBtn" title="Get in touch">
+        <span class="hire-btn-text">Hire Me</span>
+        <span class="hire-btn-icon"><i class="fas fa-briefcase"></i></span>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container hero-content">
+            <div class="hero-text" data-aos="fade-right" data-aos-duration="1000">
+                <div class="name-badge">
+                    <i class="fas fa-code-branch"></i>
+                    <span>Developer</span>
+                </div>
+                <h4>Hello, I'm</h4>
+                <h1><i class="fas fa-user-circle name-icon"></i> Md Rakibul Islam</h1>
+                <h3>A Passionate <span>CSE Developer</span></h3>
+                <p>I create intelligent applications using modern web technologies and programming expertise. Let's
+                    build something extraordinary together.</p>
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+            </div>
+            <div class="hero-image-container" data-aos="zoom-in" data-aos-duration="1000">
+                <div class="profile-photo-hero">
+                    <div class="photo-frame">
+                        <div class="photo-frame-inner">
+                            <img src="Image/profile1.jpg" alt="Md Rakibul Islam" class="profile-img">
+                            <div class="photo-glow"></div>
+                            <div class="photo-shine"></div>
+                            <div class="photo-particles"></div>
+                        </div>
+                    </div>
+                    <div class="hero-code-box">
+                        <pre><code>const passion = () =&gt; {
+    return {
+        skills: ['HTML5', 'CSS3', 'JavaScript'],
+        languages: ['Python', 'C++'],
+        databases: ['MySQL'],
+        platform: 'Linux(Ubuntu)',
+        dedication: '∞'
+    };
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">About Me</h2>
+            <div class="about-content">
+                <div class="about-img" data-aos="fade-right">
+                    <div class="about-photo-container">
+                        <div class="photo-frame-about">
+                            <img src="Image/profile.png" alt="Md Rakibul Islam" class="about-profile-img">
+                            <div class="photo-glow-about"></div>
+                            <div class="photo-border"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>CSE Enthusiast & Developer</h3>
+                    <p>I'm a Computer Science Engineering student with a passion for building robust, scalable
+                        solutions. My journey spans full-stack web development, systems programming, and database
+                        design. I believe in clean code and continuous learning.</p>
+                    <div class="about-details">
+                        <div class="detail-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>CSE Student</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-laptop-code"></i>
+                            <span>Full Stack Developer</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-brain"></i>
+                            <span>Problem Solver</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="0">
+                    <i class="fab fa-html5 html"></i>
+                    <h3>HTML5</h3>
+                    <p>Semantic markup</p>
+                </div>
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fab fa-css3-alt css"></i>
+                    <h3>CSS3</h3>
+                    <p>Animations & Design</p>
+                </div>
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fab fa-js-square js"></i>
+                    <h3>JavaScript</h3>
+                    <p>ES6+, DOM, APIs</p>
+                </div>
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fab fa-python python"></i>
+                    <h3>Python</h3>
+                    <p>Backend Development</p>
+                </div>
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="400">
+                    <i class="fas fa-terminal cpp"></i>
+                    <h3>C/C++</h3>
+                    <p>Systems Programming</p>
+                </div>
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="500">
+                    <i class="fas fa-database mysql"></i>
+                    <h3>MySQL</h3>
+                    <p>Database Design</p>
+                </div>
+                <div class="skill-card" data-aos="flip-left" data-aos-delay="600">
+                    <i class="fab fa-linux linux"></i>
+                    <h3>Linux (Ubuntu)</h3>
+                    <p>CLI & Development</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects section-padding">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
+                            alt="Project 1">
+                        <div class="project-overlay">
+                            <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i>
+                                GitHub</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>Full-featured online store with HTML5, CSS3, JavaScript, MySQL.</p>
+                        <div class="tech-tags">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>MySQL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=400&fit=crop"
+                            alt="Project 2">
+                        <div class="project-overlay">
+                            <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i>
+                                GitHub</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Task Management App</h3>
+                        <p>Productivity app built with vanilla JavaScript.</p>
+                        <div class="tech-tags">
+                            <span>JavaScript</span>
+                            <span>LocalStorage</span>
+                            <span>DOM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop"
+                            alt="Project 3">
+                        <div class="project-overlay">
+                            <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i>
+                                GitHub</a>
+                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Weather Dashboard</h3>
+                        <p>Real-time weather application using APIs.</p>
+                        <div class="tech-tags">
+                            <span>JavaScript</span>
+                            <span>API</span>
+                            <span>CSS3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p><a href="mailto:rakib.00245@gmail.com">Click to Email</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <h4>Phone</h4>
+                        <p><a href="tel:+8801817860068">Call Now</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-telegram"></i>
+                        <h4>Telegram</h4>
+                        <p><a href="https://t.me/itprakib" target="_blank">Message on Telegram</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <h4>WhatsApp</h4>
+                        <p><a href="https://wa.me/8801817860068" target="_blank">Chat on WhatsApp</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-instagram"></i>
+                        <h4>Instagram</h4>
+                        <p><a href="https://www.instagram.com/___zero_zero_two_002___?igsh=dmFtaXNtNWxleHI4"
+                                target="_blank">Follow on Instagram</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-github"></i>
+                        <h4>GitHub</h4>
+                        <p><a href="https://github.com/itpRakib" target="_blank">Visit GitHub</a></p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <h4>LinkedIn</h4>
+                        <p><a href="https://www.linkedin.com/in/md-rakibul-islam-799364327/" target="_blank">Connect on
+                                LinkedIn</a></p>
+                    </div>
+                </div>
+                <form class="contact-form" data-aos="fade-left" action="https://formspree.io/f/xvgoozzz" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Footer Brand Section -->
+                <div class="footer-section footer-brand">
+                    <div class="footer-logo">
+                        <i class="fas fa-rocket"></i> RAKIB DEV
+                    </div>
+                    <p>Full-stack developer passionate about creating elegant solutions with clean code. Specializing in
+                        web development with modern technologies.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/itpRakib" target="_blank" title="GitHub"><i
+                                class="fab fa-github"></i></a>
+                        <a href="https://www.instagram.com/___zero_zero_two_002___?igsh=dmFtaXNtNWxleHI4"
+                            target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/md-rakibul-islam-799364327/" target="_blank"
+                            title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://wa.me/01817860068" target="_blank" title="WhatsApp"><i
+                                class="fab fa-whatsapp"></i></a>
+                        <a href="https://t.me/itprakib" target="_blank" title="Telegram"><i
+                                class="fab fa-telegram"></i></a>
+                        <a href="mailto:rakib.00245@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links Section -->
+                <div class="footer-section">
+                    <h3>QUICK LINKS</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Resources Section -->
+                <div class="footer-section">
+                    <h3>RESOURCES</h3>
+                    <ul>
+                        <li><a href="https://github.com/itpRakib" target="_blank">My GitHub</a></li>
+                        <li><a href="https://www.linkedin.com/in/md-rakibul-islam-799364327/" target="_blank">LinkedIn
+                                Profile</a></li>
+                        <li><a href="https://developer.mozilla.org/" target="_blank">MDN Web Docs</a></li>
+                        <li><a href="https://stackoverflow.com/" target="_blank">Stack Overflow</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Footer Bottom -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Md Rakibul Islam. All Rights Reserved. | Crafted with by Rakibul Islam</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
