@@ -309,6 +309,8 @@ window.addEventListener('scroll', () => {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // For Mobile or negative scrolling
 });
 
+
+
 // Search functionality
 if (searchBar) {
     searchBar.addEventListener('input', (e) => {
