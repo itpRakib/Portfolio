@@ -21,10 +21,21 @@
 }
 
 /* Update Body Background */
+/* Update this section in styles.css */
 body {
     background: var(--bg);
     color: var(--text);
+    overflow-x: hidden; /* <--- ADD THIS LINE */
+    width: 100%;        /* <--- ENSURE THIS IS SET */
+    position: relative; /* <--- HELPS CONTAIN ABSOLUTE ELEMENTS */
 }
+
+/* Also add it to html to be safe */
+html {
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
 
 /* Make cards look cleaner (Less neon border, more glass) */
 .project-card, .skill-group, .hero-code-box {
