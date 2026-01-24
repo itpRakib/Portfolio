@@ -9,19 +9,14 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
-// Mobile Menu
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-
-hamburger?.addEventListener('click', () => {
-    navLinks?.classList.toggle('active');
-    // Optional: Toggle hamburger icon animation here if you want
-});
-
-// Close menu when a link is clicked
-navLinks?.querySelectorAll('a').forEach(link => {
+// Close mobile menu when a link is clicked
+document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        
         navLinks.classList.remove('active');
+        // If you add an animation to the hamburger icon, reset it here
     });
 });
 

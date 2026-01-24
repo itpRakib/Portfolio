@@ -26,111 +26,6 @@ body {
     color: var(--text);
 }
 
-/* ===== MOBILE NAVIGATION & RESPONSIVENESS ===== */
-
-/* 1. Hamburger Menu Icon */
-.hamburger {
-    display: none; /* Hidden on desktop */
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: var(--text);
-    z-index: 2000;
-}
-
-/* 2. Media Query for Tablets & Mobile (Max Width 992px) */
-@media (max-width: 992px) {
-    /* Show Hamburger */
-    .hamburger {
-        display: block;
-    }
-
-    /* Hide desktop-specific elements in nav to save space */
-    .btn-hire, 
-    .search-bar-container {
-        display: none !important;
-    }
-
-    /* Transform Nav Links into a Slide-out Drawer */
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%; /* Hidden off-screen by default */
-        height: 100vh;
-        width: 70%;   /* Covers 70% of screen width */
-        background: rgba(15, 23, 42, 0.98); /* Dark background */
-        backdrop-filter: blur(15px);
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        transition: right 0.4s ease-in-out;
-        z-index: 1000;
-        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-    }
-
-    /* The 'Active' class adds the slide-in effect */
-    .nav-links.active {
-        right: 0;
-    }
-
-    /* Styling links inside the mobile menu */
-    .nav-links li a {
-        font-size: 1.2rem;
-        font-weight: 500;
-    }
-}
-
-/* 3. Small Mobile Adjustments (Max Width 480px) */
-@media (max-width: 480px) {
-    /* Ensure container has breathing room */
-    .container {
-        width: 90%;
-        padding: 0 10px;
-    }
-
-    /* Adjust Hero Text sizing */
-    .hero-text h1 {
-        font-size: 2.2rem;
-    }
-    
-    .hero-text h3 {
-        font-size: 1.2rem;
-    }
-
-    /* Stack the About section properly */
-    .about-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-    }
-    
-    .about-details {
-        justify-content: center;
-    }
-    
-    /* Ensure photo fits */
-    .photo-frame-about {
-        width: 250px;
-        height: 250px;
-        margin: 0 auto;
-    }
-
-    /* Fix Footer Layout */
-    .footer-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-        gap: 30px;
-    }
-    
-    .footer-logo {
-        justify-content: center;
-    }
-    
-    .footer-social {
-        justify-content: center;
-    }
-}
-
 /* Make cards look cleaner (Less neon border, more glass) */
 .project-card, .skill-group, .hero-code-box {
     background: var(--card-bg);
@@ -670,6 +565,52 @@ html {
     color: var(--primary);
     font-size: 1.5rem;
     transition: all 0.3s;
+}
+
+/* Add this to your styles.css, preferably replacing the existing media queries for nav */
+
+/* Hamburger Styling */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    font-size: 1.8rem;
+    color: var(--text);
+    cursor: pointer;
+    z-index: 2000;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Visible on mobile */
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen by default */
+        width: 70%;
+        height: 100vh;
+        background: rgba(15, 23, 42, 0.98); /* Dark background */
+        backdrop-filter: blur(10px);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.4s ease-in-out;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+        z-index: 1001; /* Above everything else */
+    }
+
+    .nav-links.active {
+        right: 0; /* Slide in */
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+    }
+    
+    /* Search bar adjustment for mobile menu */
+    .search-bar-container {
+        display: none; /* Often better to hide complex search on mobile menu header */
+    }
 }
 
 .hamburger:hover {
@@ -1742,6 +1683,86 @@ html {
     transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     position: relative;
     overflow: hidden;
+}
+
+/* Find .project-grid and update the minmax value */
+.project-grid {
+    /* Changed from 350px to 280px to fit mobile screens */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+}
+
+/* Update Skills Wrapper for better mobile stacking */
+@media (max-width: 768px) {
+    .skills-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .skill-group {
+        padding: 20px;
+    }
+}
+@media (max-width: 768px) {
+    .hero {
+        /* Use min-height instead of fixed height to allow scrolling if content overflows */
+        height: auto;
+        min-height: 100vh;
+        padding-top: 120px;
+        padding-bottom: 50px;
+        text-align: center;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse; /* Image on top, text on bottom */
+        gap: 30px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.2rem; /* Reduce from 4rem so it doesn't wrap awkwardly */
+        line-height: 1.3;
+    }
+    
+    .hero-text h3 {
+        font-size: 1.5rem;
+    }
+
+    .hero-image-container {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Resize the photo frame for mobile */
+    .photo-frame {
+        width: 220px;
+        height: 220px;
+    }
+    
+    /* Ensure no horizontal overflow */
+    body, html {
+        overflow-x: hidden;
+    }
+}
+@media (hover: none) and (pointer: coarse) {
+    /* Hide custom cursor on touch devices */
+    .cursor-dot, 
+    .cursor-outline, 
+    .cursor-container,
+    .cursor-ring,
+    .cursor-glow,
+    .cursor-trail {
+        display: none !important;
+    }
+    
+    /* Reset cursor to default */
+    * {
+        cursor: auto !important;
+    }
+    
+    /* Fix hover states sticking on mobile */
+    .project-card:hover, .skill-card:hover {
+        transform: none;
+    }
 }
 
 .skill-card::before {
