@@ -9,7 +9,21 @@ window.addEventListener('beforeunload', () => {
     }
 });
 
+// Mobile Menu
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
 
+hamburger?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
+    // Optional: Toggle hamburger icon animation here if you want
+});
+
+// Close menu when a link is clicked
+navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+    });
+});
 
 // Loading Screen - Hide after 2.8 seconds
 setTimeout(() => {

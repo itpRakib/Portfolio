@@ -26,6 +26,111 @@ body {
     color: var(--text);
 }
 
+/* ===== MOBILE NAVIGATION & RESPONSIVENESS ===== */
+
+/* 1. Hamburger Menu Icon */
+.hamburger {
+    display: none; /* Hidden on desktop */
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--text);
+    z-index: 2000;
+}
+
+/* 2. Media Query for Tablets & Mobile (Max Width 992px) */
+@media (max-width: 992px) {
+    /* Show Hamburger */
+    .hamburger {
+        display: block;
+    }
+
+    /* Hide desktop-specific elements in nav to save space */
+    .btn-hire, 
+    .search-bar-container {
+        display: none !important;
+    }
+
+    /* Transform Nav Links into a Slide-out Drawer */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden off-screen by default */
+        height: 100vh;
+        width: 70%;   /* Covers 70% of screen width */
+        background: rgba(15, 23, 42, 0.98); /* Dark background */
+        backdrop-filter: blur(15px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        transition: right 0.4s ease-in-out;
+        z-index: 1000;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    }
+
+    /* The 'Active' class adds the slide-in effect */
+    .nav-links.active {
+        right: 0;
+    }
+
+    /* Styling links inside the mobile menu */
+    .nav-links li a {
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+}
+
+/* 3. Small Mobile Adjustments (Max Width 480px) */
+@media (max-width: 480px) {
+    /* Ensure container has breathing room */
+    .container {
+        width: 90%;
+        padding: 0 10px;
+    }
+
+    /* Adjust Hero Text sizing */
+    .hero-text h1 {
+        font-size: 2.2rem;
+    }
+    
+    .hero-text h3 {
+        font-size: 1.2rem;
+    }
+
+    /* Stack the About section properly */
+    .about-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .about-details {
+        justify-content: center;
+    }
+    
+    /* Ensure photo fits */
+    .photo-frame-about {
+        width: 250px;
+        height: 250px;
+        margin: 0 auto;
+    }
+
+    /* Fix Footer Layout */
+    .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 30px;
+    }
+    
+    .footer-logo {
+        justify-content: center;
+    }
+    
+    .footer-social {
+        justify-content: center;
+    }
+}
+
 /* Make cards look cleaner (Less neon border, more glass) */
 .project-card, .skill-group, .hero-code-box {
     background: var(--card-bg);
