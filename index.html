@@ -60,13 +60,13 @@
     <nav class="navbar">
         <div class="container">
             <a href="#home" class="logo"><i class="fas fa-rocket"></i> Rakibul Islam</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+           <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certificates</a></li> <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+</ul>
             <div class="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
@@ -146,7 +146,7 @@
     Get in Touch <i class="fas fa-arrow-right btn-icon"></i>
 </a>
     
-    <a href="Rakibul_Islam_CV.pdf" download="Md_Rakibul_Islam_CV" class="btn btn-download">
+    <a href="MD Rakibul Islam Resume.pdf" download="MD Rakibul Islam Resume" class="btn btn-download">
         <span>Download CV</span>
         <i class="fas fa-file-download"></i>
     </a>
@@ -244,6 +244,101 @@
         </div>
     </section>
 
+  <section id="certifications" class="section-padding bg-light">
+    <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Verified Professional Certifications</h2>
+        
+        <div class="tab-container" data-aos="fade-up">
+            <button class="tab-btn active" onclick="filterCert('all')">View All (11)</button>
+            <button class="tab-btn" onclick="filterCert('ai')">AI & Cloud</button>
+            <button class="tab-btn" onclick="filterCert('tech')">Software & Tools</button>
+        </div>
+
+        <div class="project-grid" id="certGrid">
+            <div class="project-card cert-card ai" data-aos="zoom-in">
+                <div class="project-info">
+                    <h3>AWS Compute Services Overview</h3>
+                    <p>AWS Training & Certification </p>
+                    <span class="cert-date">Feb 06, 2026 </span>
+                    <a href="AWS_Compute_Services_Overview.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card cert-card ai tech" data-aos="zoom-in" data-aos-delay="100">
+                <div class="project-info">
+                    <h3>GitHub Copilot Fundamentals</h3>
+                    <p>Microsoft Learn </p>
+                    <span class="cert-date">Feb 02, 2026 </span>
+                    <a href="Certificate_From_Microsoft.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card cert-card tech" data-aos="zoom-in" data-aos-delay="200">
+                <div class="project-info">
+                    <h3>JavaScript (Basic)</h3>
+                    <p>HackerRank </p>
+                    <span class="cert-date">Feb 05, 2026 </span>
+                    <a href="javascript_basic_certificate.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card cert-card ai" data-aos="zoom-in">
+                <div class="project-info">
+                    <h3>AI and Career Empowerment</h3>
+                    <p>University of Maryland </p>
+                    <span class="cert-date">Feb 04, 2026 </span>
+                    <a href="ai-and-career-empowerment-rakibul-islam.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card cert-card ai extra-certs hidden">
+                <div class="project-info">
+                    <h3>Introduction to Generative AI Studio</h3>
+                    <p>Google Cloud & Simplilearn </p>
+                    <span class="cert-date">Feb 04, 2026 </span>
+                    <a href="Introduction_to_Generative_AI_Studio.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card cert-card tech extra-certs hidden">
+                <div class="project-info">
+                    <h3>Introduction to MS Excel</h3>
+                    <p>Microsoft & Simplilearn </p>
+                    <span class="cert-date">Feb 05, 2026 </span>
+                    <a href="Introduction_to_MS_Excel.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-card cert-card extra-certs hidden">
+                <div class="project-info">
+                    <h3>Job Hunting for College Grads</h3>
+                    <p>LinkedIn Learning </p>
+                    <span class="cert-date">Feb 05, 2026 </span>
+                    <a href="CertificateOfCompletion_Job_Hunting_for_College_Grads.pdf" download class="btn btn-download-fixed">
+                        <i class="fas fa-file-download"></i> Download PDF
+                    </a>
+                </div>
+            </div>
+            </div>
+
+        <div class="cta-container" style="text-align: center; margin-top: 40px;">
+            <button class="btn btn-primary" id="toggleCertBtn" onclick="toggleCerts()">See More Certificates</button>
+        </div>
+    </div>
+</section>
+
     <!-- Projects Section -->
     <section id="projects" class="projects section-padding">
         <div class="container">
@@ -253,11 +348,10 @@
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop"
                             alt="Project 1">
-                        <div class="project-overlay">
-                            <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i>
-                                GitHub</a>
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
-                        </div>
+                       <div class="project-overlay">
+    <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://your-ecommerce-demo.com" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+</div>
                     </div>
                    <div class="project-info">
                         <h3>E-commerce Platform</h3>
@@ -276,10 +370,9 @@
                         <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=600&h=400&fit=crop"
                             alt="Project 2">
                         <div class="project-overlay">
-                            <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i>
-                                GitHub</a>
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
-                        </div>
+    <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://itpRakib.github.io/task-app" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+</div>
                     </div>
                     <div class="project-info">
                         <h3>Task Management App</h3>
@@ -297,10 +390,9 @@
                         <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop"
                             alt="Project 3">
                         <div class="project-overlay">
-                            <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i>
-                                GitHub</a>
-                            <a href="#" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
-                        </div>
+    <a href="https://github.com/itpRakib" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+    <a href="https://itpRakib.github.io/weather-dashboard" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+</div>
                     </div>
                     <div class="project-info">
                         <h3>Weather Dashboard</h3>

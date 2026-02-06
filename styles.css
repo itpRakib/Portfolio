@@ -50,6 +50,132 @@
     backdrop-filter: blur(5px);
 }
 
+.project-card {
+    position: relative;
+}
+
+.project-card::after {
+    content: '● Live Demo Available';
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 255, 136, 0.2);
+    color: #00ff88;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: bold;
+    backdrop-filter: blur(5px);
+    border: 1px solid #00ff88;
+    z-index: 10;
+}
+
+.tab-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.tab-btn {
+    padding: 10px 25px;
+    border-radius: 50px;
+    background: var(--card-bg);
+    border: 1px solid var(--primary);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.tab-btn.active, .tab-btn:hover {
+    background: var(--primary);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.cert-item {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.cert-item.hidden {
+    display: none;
+}
+
+/* Certificate Specific Styling */
+.cert-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.btn-download-mini {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--text);
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-download-mini:hover {
+    background: var(--primary);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.tab-btn.active {
+    background: var(--primary);
+    color: white;
+}
+
+/* Styling for Certificate Grid */
+.cert-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.cert-date {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 10px 0 20px 0;
+}
+
+.btn-download-fixed {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(135deg, #3b82f6, #06b6d4);
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-download-fixed:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.hidden { display: none !important; }
+
 /* 3. The "Slide Fill" Effect */
 .btn-download::before {
     content: '';
@@ -64,6 +190,48 @@
     border-radius: 50px;
 }
 
+.live-preview-box {
+    background: var(--card-bg);
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    margin-bottom: 40px;
+    height: 400px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-header {
+    background: var(--primary);
+    padding: 10px 20px;
+    font-weight: bold;
+    color: white;
+}
+
+.preview-content {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.preview-content iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.cert-card {
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cert-card:hover {
+    border-color: var(--primary);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.hidden { display: none; }
 /* 4. Hover State (Fill & Glow) */
 .btn-download:hover {
     color: #ffffff; /* Text turns white */

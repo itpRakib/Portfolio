@@ -40,6 +40,81 @@ let trailX = 0;
 let trailY = 0;
 let isOnElement = false;
 
+function filterCert(category) {
+    const cards = document.querySelectorAll('.cert-card');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+
+    // Update active tab styling
+    tabBtns.forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.innerText.toLowerCase().includes(category)) btn.classList.add('active');
+    });
+
+    cards.forEach(card => {
+        const isMatch = (category === 'all' || card.classList.contains(category));
+        const isExtra = card.classList.contains('extra-certs');
+        const isExpanded = !card.classList.contains('hidden');
+
+        // Logic: Show if it matches category and is either not an 'extra' or 'extra' is expanded
+        if (isMatch) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function toggleCerts() {
+    const extraCerts = document.querySelectorAll('.extra-certs');
+    const btn = document.getElementById('toggleCertBtn');
+    
+    extraCerts.forEach(cert => {
+        cert.classList.toggle('hidden');
+    });
+
+    // Update button text
+    if (btn.innerText.includes("See More")) {
+        btn.innerText = "Show Less";
+    } else {
+        btn.innerText = "See More Certificates";
+        // Smooth scroll back to top of section when closing
+        document.getElementById('certifications').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function toggleCerts() {
+    const extraCerts = document.querySelectorAll('.extra-certs');
+    const btn = document.getElementById('toggleCertBtn');
+    
+    extraCerts.forEach(cert => {
+        cert.classList.toggle('hidden');
+    });
+
+    if (btn.innerText.includes("See More")) {
+        btn.innerText = "Show Less";
+    } else {
+        btn.innerText = "See More Certificates";
+    }
+}
+
+function filterCert(category) {
+    const cards = document.querySelectorAll('.cert-card');
+    const tabBtns = document.querySelectorAll('.tab-btn');
+
+    tabBtns.forEach(btn => btn.classList.remove('active'));
+    event.target.classList.add('active');
+
+    cards.forEach(card => {
+        const matchesCategory = (category === 'all' || card.classList.contains(category));
+        
+        if (matchesCategory) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
 // Track mouse position
 document.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
